@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sena.proyect_1"
+    namespace = "com.sena.project_1"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.sena.proyect_1"
+        applicationId = "com.sena.project_1"
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -41,6 +41,7 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -49,6 +50,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

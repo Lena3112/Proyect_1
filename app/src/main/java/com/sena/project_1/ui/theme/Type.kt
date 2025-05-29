@@ -1,4 +1,4 @@
-package com.sena.project_1.ui.theme
+package com.sena.proyect_1.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

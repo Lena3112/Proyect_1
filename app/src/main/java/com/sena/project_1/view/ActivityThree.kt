@@ -11,11 +11,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,36 +31,46 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sena.proyect_1.R
+import androidx.navigation.NavController
+import com.sena.project_1.R
+import kotlinx.coroutines.delay
+
 
 @Composable
-fun ActivityThree() {
+fun ActivityThree(navController: NavController) {
+    LaunchedEffect(Unit) {
+        delay(3000)
+        navController.navigate("ActivityOne") {
+            popUpTo("ActivityThree") { inclusive = true }
+        }
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
+            .padding(24.dp)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(
             text = buildAnnotatedString {
-                withStyle(style = SpanStyle(fontSize = 20.sp)) { // Apply a larger font size to "©"
+                withStyle(style = SpanStyle(fontSize = 20.sp)) {
                     append("©")
                 }
-                append("bibi") // "bibi" will inherit the overall smaller font size
+                append("bibi")
             },
             fontSize = 40.sp,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 80.dp),
+            modifier = Modifier.padding(bottom = 50.dp),
         )
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         Image(
             painter = painterResource(id = R.drawable.mujer),
             contentDescription = null,
             modifier = Modifier
                 .size(300.dp)
-                .padding(bottom = 80.dp)
+                .padding(bottom = 70.dp)
         )
 
 
